@@ -1,0 +1,9 @@
+{
+  "name": "hypercare-public-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/hypercare-public-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["hypercare-public"],
+  "// targets": "to see all targets run: nx show project hypercare-public-e2e --web",
+  "targets": {}
+}
