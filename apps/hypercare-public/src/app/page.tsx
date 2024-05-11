@@ -14,7 +14,7 @@ export default function Index() {
             <UserCard test="THIS IS FROM THE App" />
             <h1>
               <span> Hello there, </span>
-              Welcome hypercare-public 👋
+              Welcome @hypercare/public 👋
             </h1>
           </div>
 
@@ -398,7 +398,7 @@ export default function Index() {
                 </svg>
                 View project details
               </summary>
-              <pre>nx show project hypercare-public --web</pre>
+              <pre>nx show project @hypercare/public --web</pre>
             </details>
             <details>
               <summary>
