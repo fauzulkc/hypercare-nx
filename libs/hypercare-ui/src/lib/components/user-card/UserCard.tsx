@@ -5,7 +5,7 @@ export interface UserCardProps {
 export function UserCard(props: UserCardProps) {
   return (
     <div className={'bg-black'}>
-      <h1 className="text-4xl text-white">Welcome to UserCard!</h1>
+      <h2 className="text-4xl text-white">Welcome to UserCard!</h2>
     </div>
   );
 }
