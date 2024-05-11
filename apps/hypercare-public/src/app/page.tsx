@@ -1,3 +1,4 @@
+'use client';
 import styles from './page.module.css';
 import { UserCard } from '@hypercare/ui/user-card';
 export default function Index() {
@@ -11,7 +12,13 @@ export default function Index() {
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
-            <UserCard test="THIS IS FROM THE App" />
+            <UserCard
+              title="David Dell"
+              description="The lorem text the section contain contains header having open and close functionality."
+              buttonText="Read More"
+              imageURL="https://images.pexels.com/photos/2787341/pexels-photo-2787341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              imageAlt="user image"
+            />
             <h1>
               <span> Hello there, </span>
               Welcome @hypercare/public 👋
