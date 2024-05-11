@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-
+import { UserCard } from '@hypercare/ui/user-card';
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -11,6 +11,7 @@ export default function Index() {
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
+            <UserCard test="THIS IS FROM THE App" />
             <h1>
               <span> Hello there, </span>
               Welcome hypercare-public 👋
@@ -239,7 +240,7 @@ export default function Index() {
             <div id="other-links">
               <a
                 id="nx-console"
-                className="button-pill rounded shadow"
+                className="rounded shadow button-pill"
                 href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project"
                 target="_blank"
                 rel="noreferrer"
@@ -260,7 +261,7 @@ export default function Index() {
               </a>
               <a
                 id="nx-console-jetbrains"
-                className="button-pill rounded shadow"
+                className="rounded shadow button-pill"
                 href="https://plugins.jetbrains.com/plugin/21060-nx-console"
                 target="_blank"
                 rel="noreferrer"
@@ -332,7 +333,7 @@ export default function Index() {
               </div>
               <a
                 id="nx-repo"
-                className="button-pill rounded shadow"
+                className="rounded shadow button-pill"
                 href="https://github.com/nrwl/nx?utm_source=nx-project"
                 target="_blank"
                 rel="noreferrer"
