@@ -6,6 +6,7 @@ export interface UserCardProps {
   title: string;
   description?: string;
   buttonText?: string;
+  onClick?: () => void;
 }
 
 function truncate(str: string, n: number) {
@@ -77,7 +78,10 @@ export function UserCard(props: UserCardProps) {
           )}
         </div>
         {trimmedButtonText && (
-          <button className="w-32 h-8 text-sm font-normal text-white transition duration-150 ease-in-out rounded-lg bg-brand-color hover:saturate-150 hover:-translate-y-[1px]">
+          <button
+            className="w-32 h-8 text-sm font-normal text-white transition duration-150 ease-in-out rounded-lg bg-brand-color hover:saturate-150 hover:-translate-y-[1px]"
+            onClick={props.onClick}
+          >
             {trimmedButtonText}
           </button>
         )}
