@@ -12,7 +12,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="p-8">
+        <h1 className="flex flex-col mb-8 text-6xl">
+          <span className="text-brand-secondary">Hypercare</span> {''}
+          <span>Frontend Developer Coding Challenge</span>
+        </h1>
+        {children}
+      </body>
     </html>
   );
 }

@@ -7,7 +7,7 @@ export interface DetailedCardProps {
   description: string;
 }
 
-export function DetailedCard(props: DetailedCardProps) {
+export const DetailedCard = (props: DetailedCardProps) => {
   return (
     <div className="flex flex-col max-w-screen-sm border-2 border-white border-solid shadow-2xl md:max-w-screen-lg md:flex-row rounded-3xl bg-slate-50">
       <img
@@ -36,6 +36,6 @@ export function DetailedCard(props: DetailedCardProps) {
       </div>
     </div>
   );
-}
+};
 
 export default DetailedCard;

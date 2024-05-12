@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DetailedCard } from './DetailedCard';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-
 const meta: Meta<typeof DetailedCard> = {
   component: DetailedCard,
   title: 'DetailedCard',
@@ -11,7 +8,7 @@ const meta: Meta<typeof DetailedCard> = {
 export default meta;
 type Story = StoryObj<typeof DetailedCard>;
 
-export const Primary = {
+export const Primary: Story = {
   args: {
     imageUrl:
       'https://images.pexels.com/photos/23516208/pexels-photo-23516208/free-photo-of-a-woman-in-a-white-dress-standing-in-the-woods.jpeg',
