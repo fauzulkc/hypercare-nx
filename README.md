@@ -23,3 +23,10 @@
 ## Build for production
 
 ⚒️ Run `npx nx build @hypercare/public` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
+
+# Notes to Remember
+
+- The UI Library is a separate project that can be found under the libs folder, and then navigating to the hypercare-ui folder. The storybook stories are also available there.
+- The main application for the hypercare project can be found under apps/hypercare-public
+- Some types like "user", has also been put into a separate lib with the intention for sharing types with the backend, or if the apps decide to go on a microfrontend system
+- The CSS utilizes tailwindCSS
