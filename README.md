@@ -6,7 +6,7 @@
 
 ## Install dependencies using PNPM (ideal)
 
-- 👉 Instructions can be followed here [pnpm install](https://pnpm.io/installation#using-corepack)
+👉 Instructions can be followed here [pnpm install](https://pnpm.io/installation#using-corepack)
 
 ## Start the application
 
