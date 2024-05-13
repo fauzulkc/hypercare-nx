@@ -6,6 +6,7 @@
 
 ## Install dependencies using PNPM (ideal)
 
+⚠️ Node > ^20.0.0 preferred with pnpm > ^8.0.0
 👉 Instructions can be followed here [pnpm install](https://pnpm.io/installation#using-corepack)
 
 ## Start the application
