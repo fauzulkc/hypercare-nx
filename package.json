@@ -71,7 +71,7 @@
     "jsdom": "~22.1.0",
     "nock": "^13.5.4",
     "nx": "19.0.2",
-    "postcss": "8.4.21",
+    "postcss": "8.4.31",
     "prettier": "^2.6.2",
     "storybook": "^7.5.3",
     "swc-loader": "0.1.15",
