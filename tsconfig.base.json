@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@hypercare/types": ["libs/common/types/src/index.ts"],
       "@hypercare/ui/*": ["libs/hypercare-ui/src/lib/components/*/index.ts"]
     }
   },

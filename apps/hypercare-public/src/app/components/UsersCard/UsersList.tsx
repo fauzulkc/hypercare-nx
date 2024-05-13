@@ -1,12 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import { User, getUsers } from '../../DataLoader/getUser';
+import { getUsers } from '../../data-access/getUser';
+import { User } from '@hypercare/types';
 import { UserCard } from '@hypercare/ui/user-card';
 import { DetailedCard } from '@hypercare/ui/detailed-card';
 import { Modal } from '@hypercare/ui/modal';
 import '../../global.css';
 import { useState } from 'react';
 
-export const UsersList = () => {
+export interface usersListProps {
+  users?: User[];
+}
+
+export const UsersList = (props: usersListProps) => {
   const [listsize, setListsize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [modal, setModal] = useState<User | false>(false);
@@ -16,8 +21,8 @@ export const UsersList = () => {
     error,
     data: users,
   } = useQuery({
-    queryKey: ['usersData', listsize, currentPage],
-    queryFn: () => getUsers(listsize, currentPage),
+    queryKey: ['usersData', listsize, currentPage, props.users],
+    queryFn: () => getUsers(listsize, currentPage, props.users),
   });
 
   if (isPending)
@@ -31,23 +36,26 @@ export const UsersList = () => {
     );
 
   if (error) return 'An error has occurred: ' + error.message;
-  if (users) {
-    return (
-      <>
-        {modal && (
-          <Modal onClose={() => setModal(false)}>
-            <DetailedCard
-              description={modal.description}
-              firstName={modal.firstname}
-              lastName={modal.lastname}
-              role={modal.role}
-              joinDate={new Date(modal.join_date)}
-              imageUrl={modal.avatar}
-            />
-          </Modal>
-        )}
-        <div className="flex flex-wrap justify-around gap-6 item-center">
-          {users.data.map((user: User) => (
+  if (users.data.length < 0) {
+    users.data = props.users || [];
+  }
+  return (
+    <>
+      {modal && (
+        <Modal onClose={() => setModal(false)}>
+          <DetailedCard
+            description={modal.description}
+            firstName={modal.firstname}
+            lastName={modal.lastname}
+            role={modal.role}
+            joinDate={new Date(modal.join_date)}
+            imageUrl={modal.avatar}
+          />
+        </Modal>
+      )}
+      <div className="flex flex-wrap justify-around gap-6 item-center">
+        {users.data.length > 0 &&
+          users.data.map((user: User) => (
             <UserCard
               key={user.id}
               imageURL={user.avatar}
@@ -58,8 +66,7 @@ export const UsersList = () => {
               onClick={() => setModal(user)}
             />
           ))}
-        </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 };
