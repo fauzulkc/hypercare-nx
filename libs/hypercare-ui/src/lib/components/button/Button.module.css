@@ -1,0 +1,7 @@
+.primary {
+  @apply bg-[#FF3E55] text-white;
+}
+
+.secondary {
+  @apply bg-white text-black;
+}

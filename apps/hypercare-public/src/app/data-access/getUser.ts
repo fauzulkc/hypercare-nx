@@ -13,3 +13,9 @@ export const getUsers = async (
   if (!data) throw new Error('Error fetching users');
   return { data, size: data.length };
 };
+
+export const deleteUser = async (id: string) => {
+  await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/users/${id}`, {
+    method: 'DELETE',
+  });
+};

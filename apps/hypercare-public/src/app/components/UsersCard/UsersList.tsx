@@ -1,11 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import { getUsers } from '../../data-access/getUser';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { getUsers, deleteUser } from '../../data-access/getUser';
 import { User } from '@hypercare/types';
 import { UserCard } from '@hypercare/ui/user-card';
 import { DetailedCard } from '@hypercare/ui/detailed-card';
 import { Modal } from '@hypercare/ui/modal';
 import '../../global.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface usersListProps {
   users?: User[];
@@ -15,6 +15,22 @@ export const UsersList = (props: usersListProps) => {
   const [listsize, setListsize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [modal, setModal] = useState<User | false>(false);
+  const [deleteId, setDeleteId] = useState<string | false>(false);
+
+  useEffect(() => {
+    if (deleteId) {
+      try {
+        (async () => {
+          await deleteUser(deleteId);
+        })();
+      } catch (error) {
+        console.log(error);
+        throw new Error('Error deleting user');
+      } finally {
+        setDeleteId(false);
+      }
+    }
+  }, [deleteId]);
 
   const {
     isPending,
@@ -64,6 +80,7 @@ export const UsersList = (props: usersListProps) => {
               description={user.description}
               imageAlt={user.firstname}
               onClick={() => setModal(user)}
+              onDelete={() => setDeleteId(user.id)}
             />
           ))}
       </div>

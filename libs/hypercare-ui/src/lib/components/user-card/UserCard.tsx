@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Button from '../button/Button';
 
 export interface UserCardProps {
   imageURL?: string;
@@ -7,6 +8,7 @@ export interface UserCardProps {
   description?: string;
   buttonText?: string;
   onClick?: () => void;
+  onDelete?: () => void;
   loading?: boolean;
 }
 
@@ -101,12 +103,30 @@ export function UserCard(props: UserCardProps) {
           )}
         </div>
         {trimmedButtonText && (
-          <button
-            className="w-32 h-8 text-sm font-normal text-white transition duration-150 ease-in-out rounded-lg bg-brand-color hover:saturate-150 hover:-translate-y-[1px]"
-            onClick={props.onClick}
-          >
-            {trimmedButtonText}
-          </button>
+          <div className="flex flex-wrap justify-center gap-2 align-center">
+            {/* <button
+              className="w-32 h-8 text-sm font-normal text-white transition duration-150 ease-in-out rounded-lg bg-brand-color hover:saturate-150 hover:-translate-y-[1px]"
+              onClick={props.onClick}
+            >
+              {trimmedButtonText}
+            </button> */}
+            <Button
+              label={trimmedButtonText}
+              onClick={props.onClick}
+              variant="primary"
+            />
+            <Button
+              label={'Delete'}
+              onClick={props.onDelete}
+              variant="secondary"
+            />
+            {/* <button
+              className="w-32 h-8 text-sm font-normal text-white transition duration-150 ease-in-out rounded-lg bg-red-500 hover:saturate-150 hover:-translate-y-[1px]"
+              onClick={props.onClick}
+            >
+              Delete
+            </button> */}
+          </div>
         )}
       </div>
     </div>
